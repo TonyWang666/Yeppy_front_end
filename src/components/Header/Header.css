@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+
+}
+
+.logo {
+    margin-left: 10px;
+    height: 40px;
+    width: 40px;
+}
+
+.button {
+    display: 'inline-block';
+    margin: 0 10px;
+    text-decoration: none;
+    color: #565673;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+}
+
+.button:hover{
+    color: #5f9ea0;
+}

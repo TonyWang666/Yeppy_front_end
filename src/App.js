@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import LandingPage from './landingPage/LandingPage';
 
 function App() {
   return (
-    <div >
-      Yeppy NiuB
+    <div className='App'>
+      <LandingPage />
     </div>
   );
 }
