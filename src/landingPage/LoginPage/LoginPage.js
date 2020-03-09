@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { FormControl, InputLabel, Input, FormHelperText, Button, Typography } from '@material-ui/core';
+// import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import './LoginPage.css';
 
 const LoginPage = props => {
@@ -15,30 +16,26 @@ const LoginPage = props => {
         console.log("password is:" + password);
     }
     return (
-        <div className="Login">
-            <h>LoginPage</h>
-            <form onSubmit={handleSubmit}>
-                <FormGroup controlId="email" bsSize="large">
-                    <ControlLabel>Email</ControlLabel>
-                    <FormControl
-                        autoFocus
-                        type="email"
-                        value={email}
-                        onChange={e => setEmail(e.target.value)}
-                    />
-                </FormGroup>
-                <FormGroup controlId="password" bsSize="large">
-                    <ControlLabel>Password</ControlLabel>
-                    <FormControl
-                        value={password}
-                        onChange={e => setPassword(e.target.value)}
-                        type="password"
-                    />
-                </FormGroup>
-                <Button block bsSize="large" type="submit">
-                    Login
-                </Button>
-            </form>
+        <div id='login'>
+            <div style={{ margin:'20px 50px' }}>            
+                <Typography variant="h3" fontFamily='Pacifico'> Login Page </Typography>
+            </div>
+            <div style={{width:'200px', margin:'20px 50px'}}>
+                <FormControl>
+                    <InputLabel htmlFor="my-input" >Email address</InputLabel>
+                    <Input id="my-email" aria-describedby="my-helper-text" onChange={(e) => setEmail(e.target.value)}/>
+                    <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
+                </FormControl>
+                <FormControl>
+                    <InputLabel htmlFor="my-input">Password</InputLabel>
+                    <Input id="my-pword" aria-describedby="my-helper-text"  onChange={(e) => setPassword(e.target.value)}/>
+                    <FormHelperText id="my-helper-text">We'll never share your password.</FormHelperText>
+                </FormControl>
+                <div style={{margin: '20px 0px'}}>
+                    <Button size='large' variant="outlinedPrimary" color='primary' onClick={(e) => handleSubmit(e)}> Login </Button>
+                </div>
+            </div>
+            
         </div>
     );
 }

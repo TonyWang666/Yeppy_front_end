@@ -1,16 +1,21 @@
 import React from 'react';
 import './Header.css';
+import { Button } from '@material-ui/core';
 
 const Header = props => {
     return (
         <header className='header'>
-            <div>
-                Yeppy
+            <div style={{display: 'flex'}}>
+                <div onClick={() => {props.setDefault()}}> Yeppy </div>
                 <img className='logo' src={require('../../images/logo.jpeg')} alt="logo" />
             </div>
             <div className='headerMenu'>
-                <button className="button">About Us</button>
-                <button className="button" onClick={props.setLoginPage}>Login</button>
+                <div style={{margin: '5px'}}>
+                    <Button size='large' variant="outlined" color='primary' >About Us</Button>
+                </div>
+                <div style={{margin: '5px'}}>
+                    <Button size='large' variant="outlined" color='primary' onClick={props.setLoginPage}>Login</Button>
+                </div>
             </div>
         </header>
     );

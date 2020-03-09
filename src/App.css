@@ -1,10 +1,10 @@
 body{
     background: orange;
+    background-image: url("./images/background.png");
     font-family: 'Oswald, sana-serif';
 }
 
 .App{
-    width: 90%;
     margin: 0 auto;
-    border: 1px solid #333;
+    background-color: orange;
 }

@@ -1,3 +1,6 @@
+.back {
+    background-image: url("../images/background.png");
+}
 .wrapper {
     position: absolute;
     left: 50%;
@@ -10,27 +13,42 @@
     height: 200px;
     display: block;
     position: relative;
-    left: -70%;
+    left: -80%;
     margin: 100px 50px 50px 50px;
 }
 
 .mainLogo {
-    margin-top: 400px;
+    font-family: 'Pacifico', cursive;
+    font-size: 80px;
+    margin-top: 350px;
     display: block;
     position: relative;
-    left: -29%;
+    left: -44%;
 }
 
 .login {
     margin-top: 600px;
     display: block;
     position: relative;
-    left: -18%;
+    left: -22%;
 }
 
 .register {
-    margin-top: 630px;
+    margin-top: 650px;
     display: block;
     position: relative;
     left: -7%;
+}
+
+/* .button {
+    display: 'inline-block';
+    margin: 0 10px;
+    text-decoration: none;
+    color: #565673;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+} */
+
+.button:hover{
+    color: #5f9ea0;
 }

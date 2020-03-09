@@ -1,10 +1,29 @@
-@media all and (min-width: 480px) {
-    .Login {
-        padding: 60px 0;
-    }
+#loginPage {
+    width: 20%;
+    left: 20%;
+    margin: '50px';
 
-    .Login form {
-        margin: 0 auto;
-        max-width: 320px;
-    }
 }
+/* .wrapper{
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.input{
+    display: inline-block;
+    position: relative;
+}
+
+.button {
+    display: 'inline-flex';
+    margin: 0 10px;
+    text-decoration: none;
+    color: #565673;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+} */
+
+/* .button:hover{
+    color: #5f9ea0;
+} */
