@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 20px 10px 20px;
+    font-family: 'Pacifico', cursive;
+    font-size: 30px;
+}
+
+.headerMenu {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.logo {
+    margin: 10px 10px 0px 10px;
+    height: 40px;
+    width: 40px;
+}

@@ -1,25 +1,46 @@
 import React, { useState } from 'react';
-import { FormControl, InputLabel, Input, FormHelperText, Button, Typography } from '@material-ui/core';
+import { FormControl, InputLabel, Input, FormHelperText, Button, Typography, Dialog, DialogTitle, DialogContent, DialogActions } from '@material-ui/core';
 import './RegisterPage.css';
 import http  from '../../Socket/socket.js';
 
 const RegisterPage = props => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [open, setOpen] = useState(false);
+    const [title, setTitle] = useState("");
+    const [msg, setMsg] = useState("");
 
+    const handleClickOpen = () => {
+        setOpen(true)
+    }
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const sleep = (milliseconds) => {
+        return new Promise(resolve => setTimeout(resolve, milliseconds))
+    }
     // function validateform() {
     //     return email.length > 0 && password.length > 0;
     // }
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
-        console.log('Get is:' , http)
         const request = {username: `${email}`, password: `${password}`};
-        console.log('request is:', request);
-        const response = http.POST('http://localhost:8080/Yeppy_war/rest/register', request);
-
-        console.log('Response is:', response)
-        console.log("Email is: " + email);
-        console.log("password is:" + password);
+        const response = await http.POST('http://localhost:8080/Yeppy_war/rest/register', request);
+        if(response === 400) {
+            setTitle('Invalid Email or Password')
+            setMsg("Please try again to register with the valid email and password")
+            handleClickOpen()
+            sleep(3000).then(() => props.isRegister('register'))
+            // sleep(5000).then(() => props.isRegister('register'))
+        }
+        else if(response.data.resultCode === 220) {
+            setTitle("Register Succesfully")
+            setMsg('Congratulations, you just register with email', email)
+            handleClickOpen()
+            sleep(3000).then(() => props.isRegister('login'))
+        }
     }
     return (
         <div id='login'>
@@ -41,7 +62,22 @@ const RegisterPage = props => {
                     <Button size='large' variant="outlinedPrimary" color='primary' onClick={(e) => handleSubmit(e)}> Register </Button>
                 </div>
             </div>
-            
+            <Dialog
+                open={open}
+                onClose={handleClose}
+            >
+                <DialogTitle> {title} </DialogTitle>
+                <DialogContent>
+                    <DialogContent>
+                        {msg}
+                    </DialogContent>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose} color="primary">
+                        OK
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </div>
     );
 }
