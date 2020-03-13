@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FormControl, InputLabel, Input, FormHelperText, Button, Typography } from '@material-ui/core';
 import './RegisterPage.css';
+import http  from '../../Socket/socket.js';
 
 const RegisterPage = props => {
     const [email, setEmail] = useState("");
@@ -11,6 +12,12 @@ const RegisterPage = props => {
     // }
     function handleSubmit(event) {
         event.preventDefault();
+        console.log('Get is:' , http)
+        const request = {username: `${email}`, password: `${password}`};
+        console.log('request is:', request);
+        const response = http.POST('http://localhost:8080/Yeppy_war/rest/register', request);
+
+        console.log('Response is:', response)
         console.log("Email is: " + email);
         console.log("password is:" + password);
     }

@@ -1,19 +1,28 @@
 import React, { useState } from 'react';
-import { FormControl, InputLabel, Input, FormHelperText, Button, Typography } from '@material-ui/core';
-// import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { FormControl, InputLabel, Input, FormHelperText, Button, Typography, Dialog, DialogTitle, DialogContent, DialogActions } from '@material-ui/core';
+import http  from '../../Socket/socket.js';
 import './LoginPage.css';
 
 const LoginPage = props => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [open, setOpen] = useState(false);
 
+    const handleClickOpen = () => {
+        setOpen(true)
+    }
+
+    const handleClose = () => {
+        setOpen(false);
+    };
     // function validateform() {
     //     return email.length > 0 && password.length > 0;
     // }
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
-        console.log("Email is: " + email);
-        console.log("password is:" + password);
+        const response = await http.POST('http://localhost:8080/Yeppy_war/rest/login', {username: `${email}`, password: `${password}`});
+        if(response === 400) handleClickOpen()//setPrompt("Invalid Email or Password, Please try again...")
+        else if(response.data.resultCode === 200) props.isLogin()
     }
     return (
         <div id='login'>
@@ -35,7 +44,23 @@ const LoginPage = props => {
                     <Button size='large' variant="outlinedPrimary" color='primary' onClick={(e) => handleSubmit(e)}> Login </Button>
                 </div>
             </div>
-            
+            {/* <div style={{margin: '20px 20px'}}>{prompt}</div> */}
+            <Dialog
+                open={open}
+                onClose={handleClose}
+            >
+                <DialogTitle>Wrong Email or Password</DialogTitle>
+                <DialogContent>
+                    <DialogContent>
+                        Please try again to login with the correct email and password
+                    </DialogContent>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose} color="primary">
+                        OK
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </div>
     );
 }

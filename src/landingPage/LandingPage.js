@@ -29,7 +29,7 @@ const LandingPage = props => {
                     </div>
                 </div>
             </div> : 
-            page === "login" ? <LoginPage /> : <RegisterPage />
+            page === "login" ? <LoginPage isLogin={ props.isLogin } /> : <RegisterPage />
             }
         </div>
 
