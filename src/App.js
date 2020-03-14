@@ -4,12 +4,12 @@ import LandingPage from './LandingPage/LandingPage';
 import HomePage from './HomePage/HomePage';
 
 function App() {
-  const [userStatus, setStatus] = useState(0);
+  const [userId, setUserId] = useState(-1); 
   return (
-    userStatus === 0 ? 
+    userId === -1 ? 
     <div className='App'>
-      <LandingPage toMainPage={() => setStatus(1)}/>
-    </div> : <div> <HomePage /> </div>
+      <LandingPage userId={userId} toMainPage={(userId) => { setUserId(userId)}} />
+    </div> : <div> <HomePage userId={userId} /> </div>
   );
 }
 

@@ -21,9 +21,9 @@ const LoginPage = props => {
     //     return email.length > 0 && password.length > 0;
     // }
 
-    const sleep = (milliseconds) => {
-        return new Promise(resolve => setTimeout(resolve, milliseconds))
-    }
+    // const sleep = (milliseconds) => {
+    //     return new Promise(resolve => setTimeout(resolve, milliseconds))
+    // }
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -35,7 +35,8 @@ const LoginPage = props => {
             // sleep(3000).then(() => props.isLogin('login'))
         }
         else if(response.data.resultCode === 200) {
-            props.toMainPage()
+
+            props.toMainPage(response.data.userId)
             // setTitle("Register Succesfully")
             // setMsg('Congratulations, you just login with email', email)
             // handleClickOpen()
@@ -60,7 +61,7 @@ const LoginPage = props => {
                     <FormHelperText id="my-helper-text">We'll never share your password.</FormHelperText>
                 </FormControl>
                 <div style={{margin: '20px 0px'}}>
-                    <Button size='large' variant="outlinedPrimary" color='primary' onClick={(e) => handleSubmit(e)}> Login </Button>
+                    <Button size='large' variant="outlined" color='primary' onClick={(e) => handleSubmit(e)}> Login </Button>
                 </div>
             </div>
             {/* <div style={{margin: '20px 20px'}}>{prompt}</div> */}

@@ -59,7 +59,7 @@ const RegisterPage = props => {
                     <FormHelperText id="my-helper-text">We'll never share your password.</FormHelperText>
                 </FormControl>
                 <div style={{margin: '20px 0px'}}>
-                    <Button size='large' variant="outlinedPrimary" color='primary' onClick={(e) => handleSubmit(e)}> Register </Button>
+                    <Button size='large' variant="outlined" color='primary' onClick={(e) => handleSubmit(e)}> Register </Button>
                 </div>
             </div>
             <Dialog
