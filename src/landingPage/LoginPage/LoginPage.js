@@ -21,10 +21,6 @@ const LoginPage = props => {
     //     return email.length > 0 && password.length > 0;
     // }
 
-    // const sleep = (milliseconds) => {
-    //     return new Promise(resolve => setTimeout(resolve, milliseconds))
-    // }
-
     async function handleSubmit(event) {
         event.preventDefault();
         const response = await http.POST('http://localhost:8080/Yeppy_war/rest/login', {username: `${email}`, password: `${password}`});
@@ -35,7 +31,6 @@ const LoginPage = props => {
             // sleep(3000).then(() => props.isLogin('login'))
         }
         else if(response.data.resultCode === 200) {
-
             props.toMainPage(response.data.userId)
             // setTitle("Register Succesfully")
             // setMsg('Congratulations, you just login with email', email)
@@ -64,7 +59,6 @@ const LoginPage = props => {
                     <Button size='large' variant="outlined" color='primary' onClick={(e) => handleSubmit(e)}> Login </Button>
                 </div>
             </div>
-            {/* <div style={{margin: '20px 20px'}}>{prompt}</div> */}
             <Dialog
                 open={open}
                 onClose={handleClose}

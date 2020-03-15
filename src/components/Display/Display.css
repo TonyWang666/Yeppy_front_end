@@ -1,0 +1,11 @@
+.parent_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.card {
+    margin: 0 auto
+}
+

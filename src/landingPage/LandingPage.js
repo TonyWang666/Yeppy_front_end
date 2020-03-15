@@ -18,7 +18,7 @@ const LandingPage = props => {
             <div className="back">
                 <div className="wrapper">
                     <div className='mainImage'>
-                        <img  src={require('../images/logo.jpeg')} alt="logo" />
+                        <img  src={require('../images/logo.png')} alt="logo" />
                     </div>
                     <div className='mainLogo' > Yeppy </div>
                     <div className='login'>

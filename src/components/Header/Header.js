@@ -7,7 +7,7 @@ const Header = props => {
         <header className='header'>
             <div style={{display: 'flex'}}>
                 <div onClick={() => {props.setDefault()}}> Yeppy </div>
-                <img className='logo' src={require('../../images/logo.jpeg')} alt="logo" />
+                <img className='logo' src={require('../../images/logo.png')} alt="logo" />
             </div>
             <div className='headerMenu'>
                 <div style={{margin: '5px'}}>
