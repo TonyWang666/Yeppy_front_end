@@ -9,11 +9,11 @@ Operation
 4. Also remember to open the server and database with the tables created already
 
 
-Project Name: 
-Content-based Personal Restaurant Recommendation system
+Project Name: Yeppy 
 
 Description: 
-A full-stack project with frontend using React.js and backend using Java, Rest API, Postgresql
+1. A Content-based Personal Restaurant Recommendation system
+2. A full-stack project with frontend using React.js and backend using Java, Rest API, Postgresql
 
 Description for this repository:
 The front-end of the Yeppy, written by JavaScript, React.js, Material UI and the other frameworks.
