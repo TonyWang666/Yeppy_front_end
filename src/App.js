@@ -9,7 +9,7 @@ function App() {
     userId === -1 ? 
     <div className='App'>
       <LandingPage userId={userId} toMainPage={(userId) => { setUserId(userId)}} />
-    </div> : <div> <HomePage userId={userId} /> </div>
+    </div> : <div> <HomePage setDefault={() => setUserId(-1)} userId={userId} /> </div>
   );
 }
 

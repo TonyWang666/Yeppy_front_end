@@ -52,7 +52,7 @@ const LoginPage = props => {
                 </FormControl>
                 <FormControl>
                     <InputLabel htmlFor="my-input">Password</InputLabel>
-                    <Input id="my-pword" aria-describedby="my-helper-text"  onChange={(e) => setPassword(e.target.value)}/>
+                    <Input id="my-pword" type='password' aria-describedby="my-helper-text"  onChange={(e) => setPassword(e.target.value)}/>
                     <FormHelperText id="my-helper-text">We'll never share your password.</FormHelperText>
                 </FormControl>
                 <div style={{margin: '20px 0px'}}>
